@@ -38,7 +38,7 @@ def plot(data, path, mode = 'line',
          xtick_direction = 'in', xtick_width = 1, xtick_length = 3, ytick_direction = 'in', ytick_width = 1, ytick_length = 3, 
          legend = False, legend_loc = 'best', legend_ncol = 1, legend_fontsize = 'medium', legend_border = False, legend_frameon = True, legend_fancybox = False, legend_alpha=1.0, legend_args = {},
          linewidth = 1, boxplot_sym='', boxplot_whis=[5,95], timeseries_format='%Y/%m/%d', bars_width=0.6,
-         callback = None, timeseries_stacked_right_legend_order=True, CDF_complementary=False ):
+         callback = None, timeseries_stacked_right_legend_order=True, CDF_complementary=False, title = None):
 
     # 1. Create and configure plot visual style
     mpl.rcParams.update(mpl.rcParamsDefault)
@@ -245,8 +245,11 @@ def plot(data, path, mode = 'line',
             if legend_border == False:
                 legend.get_frame().set_linewidth(0.0)
 
+    # 6. Title
+    if title is not None:
+        plt.title(title)
 
-    # 6. Save Fig
+    # 7. Save Fig
     plt.tight_layout()
 
     # Handle Interactive Plot
